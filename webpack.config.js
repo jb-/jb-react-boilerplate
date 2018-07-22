@@ -11,9 +11,14 @@ module.exports = {
     rules: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      use: {
+      use: [{
         loader: 'babel-loader'
-      }
+      }, {
+        loader: 'eslint-loader',
+        options: {
+          emitWarning: true
+        }
+      }]
     }]
   },
   plugins: [
