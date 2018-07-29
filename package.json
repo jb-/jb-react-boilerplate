@@ -15,13 +15,16 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
     "babel-loader": "^7.1.5",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "concurrently": "^3.6.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-loader": "^2.1.0",
+    "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
@@ -33,6 +36,6 @@
   "scripts": {
     "start": "webpack-dev-server --mode production --open --hot",
     "build": "webpack --mode production",
-    "lint": "eslint ./src/**/*.js"
+    "lint": "eslint ./src/**/*.js ./lib/**/*.js"
   }
 }
