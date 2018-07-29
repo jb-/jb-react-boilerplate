@@ -3,10 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './lib/index.js',
-  output: {
-    path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js'
+  devServer: {
+    proxy: {
+      '/': 'http://localhost:56709'
+    },
   },
+  devtool: 'cheap-module-eval-source-map',
+  mode: 'development',
   module: {
     rules: [{
       test: /\.js$/,
@@ -17,16 +20,12 @@ module.exports = {
         loader: 'eslint-loader',
         options: {
           emitWarning: true
-        }
-      }]
+        },
+      }],
     }]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    })
-  ],
-  proxy: {
-    '/': 'localhost:56709'
-  }
+  output: {
+    path: path.join(__dirname, '/dist'),
+    filename: 'bundle.js',
+  },
 }
